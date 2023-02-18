@@ -12,7 +12,7 @@ pipeline_tag: text-generation
 
 Version 1.0 / 13.Feb.2023
 
-This model is a close collaboration between MediaTek Research, National Academy for Educational Research, and CKIP lab, Acedemia Sinica.
+This model is a close collaboration between CKIP lab at Acedemia Sinica, MediaTek Research, and National Academy for Educational Research.
 
 ## Table of Contents
 1. [Model Details](#model-details)
