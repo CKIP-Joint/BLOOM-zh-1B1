@@ -1,4 +1,3 @@
-<h1 style='text-align: center '>BLOOM-zh</h1> 
 <h2 style='text-align: center '><em>Traditional Chinese-enhanced BLOOM language model</em> </h2> 
 <h3 style='text-align: center '>Model Card</h3>
 
