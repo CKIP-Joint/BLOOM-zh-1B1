@@ -1,179 +1,77 @@
 ---
 license: bigscience-bloom-rail-1.0
 language:
+- zh
 - en
-- zht
 pipeline_tag: text-generation
+widget:
+ - text: "四月的某一天，天氣晴朗寒冷，"
+ - text: "問：台灣最高的建築物是？答："
 ---
 
 <h1 style='text-align: center '>BLOOM-zh</h1> 
-<h2 style='text-align: center '><em>Open-access Multilingual Language Model based on BLOOM</em> </h2> 
+<h2 style='text-align: center '><em>Traditional Chinese-enhanced BLOOM language model</em> </h2> 
 <h3 style='text-align: center '>Model Card</h3>
 
-Version 1.0 / 13.Feb.2023
+Version 1.0 / 20.Feb.2023
 
-This model is a close collaboration between CKIP lab at Acedemia Sinica, MediaTek Research, and National Academy for Educational Research.
+This model is a joint collaboration between CKIP lab at Acedemia Sinica ([link](https://ckip.iis.sinica.edu.tw/)), MediaTek Research ([連結](https://www.mtkresearch.com/), [连结](https://www.mtkresearch.com/zh-hans/), [link](https://www.mtkresearch.com/en/)), and National Academy for Educational Research ([link](https://www.naer.edu.tw/)).
 
 ## Table of Contents
 1. [Model Details](#model-details)
 2. [Uses](#uses)
 3. [Training Data](#training-data)
 4. [Risks and Limitations](#risks-and-limitations)
-5. [Evaluation](#evaluation)
-6. [Recommendations](#recommendations)
-7. [Glossary and Calculations](#glossary-and-calculations)
-8. [More Information](#more-information)
-9. [Model Card Authors](#model-card-authors)
+5. [Recommendations](#recommendations)
+6. [Model Card Authors](#model-card-authors)
 
 ## Model Details  
-BLOOM-zh is a modification from [BLOOM](https://huggingface.co/bigscience/bloom). 
-BLOOM-zh is trained extendedly on larger amounts of Traditional Chinese text data while it still maintains its pretrained English ability.
-    
+BLOOM-zh is a language model with enhanced Traditional Chinese capability. It is derived from [BLOOMZ](https://huggingface.co/bigscience/bloomz). 
+BLOOM-zh is trained extendedly on large amount of Traditional Chinese text data.
+
+The model can be downloaded on the Huggingface Model Hub: [link](https://huggingface.co/ckip-joint/bloom-1b1-zh)
 
 ### Basics
-*This section provides information for anyone who wants to know about the model.*
-
-<details>
-<summary>Click to expand</summary> <br/>
     
-**Developed by:** MediaTek Research ([website](https://www.mtkresearch.com/))
-    
-**Model Type:** Transformer-based Language Model
+* **Developed by:** MediaTek Research
+* **Model Type:** Transformer-based Language Model
+* **Version:** 1.0.0
+* **Languages:** Multiple; see [training data](#training-data)
+* **License:** MEDIATEK RESEARCH License ([link](https://huggingface.co/ckip-joint/bloom-1b1-zh/blob/main/LICENSE_MR.md)) and RAIL License v1.0 ([link](https://huggingface.co/spaces/bigscience/license))
+* **Release Date Estimate:** Wednesday, 22.February.2023
+* **Send Questions to:** info@mtkresearch.com
+* **Cite as:** MediaTek Research: Traditional Chinese-enhanced BLOOM language model. International, February 2023.
+* **Organizations of contributors:** 
+  * MediaTek Research
+  * Academia Sinica
+  * National Academy for Educational Research
 
-**Version:** 1.0.0
-
-**Languages:** Multiple; see [training data](#training-data)
-
-**License:** MEDIATEK RESEARCH License ([link](https://huggingface.co/MediaTek-Research/bloom-1b1-zh/blob/main/LICENSE_MR.md)) and RAIL License v1.0 ([link](https://huggingface.co/spaces/bigscience/license))
-
-**Release Date Estimate:** Tuesday, 14.February.2023
-
-**Send Questions to:** info@mtkresearch.com
-
-**Cite as:** MediaTek Research, MediaTek Research Open-access Multilingual Language Model based on BLOOM. International, February 2023.
-
-**Organizations of contributors:** 
-    
-* MediaTek Research
-* Academia Sinica
-
-</details>
 
 ### Technical Specifications
 *This section provides information for people who work on model development.*
 
-<details>
-<summary>Click to expand</summary><br/>
-
-**Model Architecture:** Modified from Megatron-LM GPT2 (see [paper](https://arxiv.org/abs/1909.08053), [BLOOM Megatron code](https://github.com/bigscience-workshop/Megatron-DeepSpeed)):
-
-* Decoder-only architecture
-
-* Layer normalization applied to word embeddings layer (`StableEmbedding`; see [code](https://github.com/facebookresearch/bitsandbytes), [paper](https://arxiv.org/pdf/2110.02861.pdf))
-
-* ALiBI positional encodings (see [paper](https://arxiv.org/pdf/2108.12409.pdf)), with GeLU activation functions
-
-* 1,065,314,304 parameters:
-
-    * 385,351,680 embedding parameters
-
-    * 24 layers, 16 attention heads
-
-    * Hidden layers are 1536-dimensional
-
-    * Sequence length of 2048 tokens used (see [BLOOM tokenizer](https://huggingface.co/bigscience/tokenizer), [tokenizer description](#tokenization))
-
-**Objective Function:** Cross Entropy with mean reduction (see [API documentation](https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html#torch.nn.CrossEntropyLoss)).
-    
-**Compute infrastructure:** 
-
-* Hardware: 8 A6000 48GB GPUs (1 node):
-
-
-* Software:
-  
-    *   Bigscience Megatron-DeepSpeed ([Github link](https://github.com/bigscience-workshop/Megatron-DeepSpeed))
-  
-    *   Megatron-DeepSpeed ([Github link](https://github.com/bigscience-workshop/Megatron-DeepSpeed))
-
-    *   DeepSpeed ([Github link](https://github.com/microsoft/DeepSpeed))
-
-    *   PyTorch (pytorch-1.11 w/ CUDA-11.5; see [Github link](https://github.com/pytorch/pytorch))
-
-    *   apex ([Github link](https://github.com/NVIDIA/apex))
-
-
-#### **Training**
-
-Details are provided in the [paper](https://arxiv.org/).
-
-- Number of epochs: 1
-
-- Dates: Feb. 2023
-
-#### **Tokenization**
-    
-The BLOOM tokenizer ([link](https://huggingface.co/bigscience/tokenizer)) is a learned subword tokenizer trained using:
-    
-- A byte-level Byte Pair Encoding (BPE) algorithm 
-
-- A simple pre-tokenization rule, no normalization
-
-- A vocabulary size of 250,680
-
-It was trained on a subset of a preliminary version of the corpus using alpha-weighting per language.    
-    
-</details>
-
+For technical specifications, please refer to [BLOOM](https://huggingface.co/bigscience/bloom-1b1#model-details).
 
 ### Environmental Impact
 
-<details>
-<summary>Click to expand</summary><br/>
-
-Please refer to [Model card](https://huggingface.co/bigscience/bloom-1b1#model-details).
-
-
-</details>
-<p>&nbsp;</p>
+For environmental impact, please refer to [BLOOM](https://huggingface.co/bigscience/bloom-1b1#model-details).
 
 ## Uses
 
 *This section addresses questions around how the model is intended to be used, discusses the foreseeable users of the model (including those affected by the model), and describes uses that are considered out of scope or misuse of the model. 
 It provides information for anyone considering using the model or who is affected by the model.*
 
-
-<details>
-<summary>Click to expand</summary><br/>
-    
-Please refer to [Model card](https://huggingface.co/bigscience/bloom-1b1#uses).
-    
-</details>
-<p>&nbsp;</p>
+For the uses of the model, please refer to [BLOOM](https://huggingface.co/bigscience/bloom-1b1#uses).
 
 ## Training Data
 *This section provides a high-level overview of the training data. It is relevant for anyone who wants to know the basics of what the model is learning.*
-
-
-<details>
-<summary>Click to expand</summary><br/>
     
-We trained the 1B1 parameter model on a total of 6 Billion tokens mainly crawled from the internet and provided from National Academy for Educational Research, 75% of the training data is Traditional Chinese, 25% is English.
-    
-</details>    
-</details>
-<p>&nbsp;</p>
+We trained the 1B1 parameter model on a total of 6 Billion tokens of mostly high quality Traditional Chinese text. Details are provided in the [paper(work in progress)](https://arxiv.org/).
 
 ## Risks and Limitations
 *This section identifies foreseeable harms and misunderstandings.*
-
-<details>
-<summary>Click to expand</summary><br/>
     
-Please refer to [Model card](https://huggingface.co/bigscience/bloom-1b1#risks-and-limitations).
-
-</details>
-<p>&nbsp;</p>
+For risks and limitations, please refer to [BLOOM](https://huggingface.co/bigscience/bloom-1b1#risks-and-limitations).
 
 ### Factors 
 *This section lists some different aspects of BLOOM models. Its focus is on those aspects that are likely to give rise to high variance in model behavior.*
@@ -182,25 +80,16 @@ Please refer to [Model card](https://huggingface.co/bigscience/bloom-1b1#risks-a
 
 - The model is trained on web crawled data, news articles, novels, knowledge sources (encyclopedia, education sector) and instructions
 
-</details>
-<p>&nbsp;</p>
 
 ## Recommendations
 
 *This section provides information on warnings and potential mitigations.*
 
-
-<details>
-<summary>Click to expand</summary><br/>
-
-Please refer to [Model card](https://huggingface.co/bigscience/bloom-1b1#recommendations).
-
-</details>
-<p>&nbsp;</p>
+For recommendations, please refer to [BLOOM](https://huggingface.co/bigscience/bloom-1b1#recommendations).
 
     
 ## Model Card Authors
 *Ordered roughly chronologically and by amount of time spent.*
 
-Philipp Ennen, Po-Chun Hsu, Chan-Jan Hsu, Chang-Le Liu, Yin-Hsiang Liao, Chin-Tung Lin, Jezabel Rodriguez Garcia, Federica Freddi, Da-Shan Shiu, Wei-Yun Ma
-# Bloom_eval
+Philipp Ennen, Po-Chun Hsu, Chan-Jan Hsu, Chang-Le Liu, Yen-Chen Wu, Yin-Hsiang Liao, Chin-Tung Lin, Da-Shan Shiu, Wei-Yun Ma
+<!-- # Bloom_eval -->
