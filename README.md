@@ -1,83 +1,49 @@
-<h2 style='text-align: center '><em>Traditional Chinese-enhanced BLOOM language model</em> </h2> 
-<h3 style='text-align: center '>Model Card</h3>
+# BLOOM-zh: Extending the Pre-Training of BLOOM for Improved Support of Traditional Chinese
 
-Version 1.0 / 20.Feb.2023
+The multilingual language model BLOOM-zh features enhanced support for Traditional Chinese. BLOOM-zh has its origins in the open-source BLOOM models presented by BigScience in 2022. The technical specification can be found in the corresponding [paper](https://arxiv.org/abs/2303.04715). As of March 9nd 2023, the 1B1 parameter model is released with following unique features:
 
-This model is a joint collaboration between CKIP lab at Acedemia Sinica ([link](https://ckip.iis.sinica.edu.tw/)), MediaTek Research ([連結](https://www.mtkresearch.com/), [连结](https://www.mtkresearch.com/zh-hans/), [link](https://www.mtkresearch.com/en/)), and National Academy for Educational Research ([link](https://www.naer.edu.tw/)).
+- Multilingual: supports Traditional Chinese as well as the pretrained languages of BLOOM
 
-## Table of Contents
-1. [Model Details](#model-details)
-2. [Uses](#uses)
-3. [Training Data](#training-data)
-4. [Risks and Limitations](#risks-and-limitations)
-5. [Recommendations](#recommendations)
-6. [Model Card Authors](#model-card-authors)
+- Performance: performs significantly better on Traditional Chinese than the original BLOOM
 
-## Model Details  
-BLOOM-zh is a language model with enhanced Traditional Chinese capability. It is derived from [BLOOMZ](https://huggingface.co/bigscience/bloomz). 
-BLOOM-zh is trained extendedly on large amount of Traditional Chinese text data.
+- Free-to-download: model weights are free to download 
 
-The model can be downloaded on the Huggingface Model Hub: [link](https://huggingface.co/ckip-joint/bloom-1b1-zh)
+## News
 
-### Basics
-    
-* **Developed by:** MediaTek Research
-* **Model Type:** Transformer-based Language Model
-* **Version:** 1.0.0
-* **Languages:** Multiple; see [training data](#training-data)
-* **License:** MEDIATEK RESEARCH License ([link](https://huggingface.co/ckip-joint/bloom-1b1-zh/blob/main/LICENSE_MR.md)) and RAIL License v1.0 ([link](https://huggingface.co/spaces/bigscience/license))
-* **Release Date Estimate:** Wednesday, 22.February.2023
-* **Send Questions to:** info@mtkresearch.com
-* **Cite as:** MediaTek Research: Traditional Chinese-enhanced BLOOM language model. International, February 2023.
-* **Organizations of contributors:** 
-  * MediaTek Research
-  * Academia Sinica
-  * National Academy for Educational Research
+- **[2023.03.09]** Our [paper](https://arxiv.org/abs/2303.04715) for Bloom-zh is out!
 
+- **[2023.03.07]** [Bloom-zh 1B1](https://huggingface.co/ckip-joint/bloom-1b1-zh) is out!
 
-### Technical Specifications
-*This section provides information for people who work on model development.*
+## Getting Started
 
-For technical specifications, please refer to [BLOOM](https://huggingface.co/bigscience/bloom-1b1#model-details).
+### Model weights
 
-### Environmental Impact
+| Model        | Training tokens | Download                                       |
+| ------------ | --------------- | ---------------------------------------------- |
+| Bloom-zh 1B1 | 5.6 B           | https://huggingface.co/ckip-joint/bloom-1b1-zh |
+| Bloom-zh 3B  | 5.6 B           | -                                              |
 
-For environmental impact, please refer to [BLOOM](https://huggingface.co/bigscience/bloom-1b1#model-details).
+### Evaluation
 
-## Uses
+For perplexity evaluation, we used the evaluation pipeline presented in the original [megatron-deepspeed](https://github.com/microsoft/Megatron-DeepSpeed) library. For evaluating the downstream task performance, please follow the instructions of the [Traditional Chinese Evaluation Suite](https://github.com/CKIP-Joint/Evaluator). We evaluated the model on following tasks:
 
-*This section addresses questions around how the model is intended to be used, discusses the foreseeable users of the model (including those affected by the model), and describes uses that are considered out of scope or misuse of the model. 
-It provides information for anyone considering using the model or who is affected by the model.*
+- TTQA: Taiwan Trivia Question Answering. Please refer to [paper](https://arxiv.org/abs/2303.04715) 
+- DRCD: Please refer to [DRCD](https://github.com/DRCKnowledgeTeam/DRCD)
+- FGC: Please refer to [科技大擂台](https://scidm.nchc.org.tw/dataset/grandchallenge2020/resource/af730fe7-7f95-4af2-b4f4-1ca09406b35a)
 
-For the uses of the model, please refer to [BLOOM](https://huggingface.co/bigscience/bloom-1b1#uses).
+## License
 
-## Training Data
-*This section provides a high-level overview of the training data. It is relevant for anyone who wants to know the basics of what the model is learning.*
-    
-We trained the 1B1 parameter model on a total of 6 Billion tokens of mostly high quality Traditional Chinese text. Details are provided in the [paper(work in progress)](https://arxiv.org/).
+The use of BLOOM-zh model weights is subject to the [Model License](https://huggingface.co/ckip-joint/bloom-1b1-zh/blob/main/LICENSE_MR.md).
 
-## Risks and Limitations
-*This section identifies foreseeable harms and misunderstandings.*
-    
-For risks and limitations, please refer to [BLOOM](https://huggingface.co/bigscience/bloom-1b1#risks-and-limitations).
+## Citation
 
-### Factors 
-*This section lists some different aspects of BLOOM models. Its focus is on those aspects that are likely to give rise to high variance in model behavior.*
+If you find our work useful, please consider citing BLOOM-zh:
 
-- The model is trained on Traditional Chinese and English. However, the pretrained weights capture more than 40 different languages.
-
-- The model is trained on web crawled data, news articles, novels, knowledge sources (encyclopedia, education sector) and instructions
-
-
-## Recommendations
-
-*This section provides information on warnings and potential mitigations.*
-
-For recommendations, please refer to [BLOOM](https://huggingface.co/bigscience/bloom-1b1#recommendations).
-
-    
-## Model Card Authors
-*Ordered roughly chronologically and by amount of time spent.*
-
-Philipp Ennen, Po-Chun Hsu, Chan-Jan Hsu, Chang-Le Liu, Yen-Chen Wu, Yin-Hsiang Liao, Chin-Tung Lin, Da-Shan Shiu, Wei-Yun Ma
-<!-- # Bloom_eval -->
+```
+@article{ennen2023extending,
+  title={Extending the Pre-Training of BLOOM for Improved Support of Traditional Chinese: Models, Methods and Results},
+  author={Ennen, Philipp and Hsu, Po-Chun and Hsu, Chan-Jan and Liu, Chang-Le and Wu, Yen-Chen and Liao, Yin-Hsiang and Lin, Chin-Tung and Shiu, Da-Shan and Ma, Wei-Yun},
+  journal={arXiv preprint arXiv:2303.04715},
+  year={2023}
+}
+```
