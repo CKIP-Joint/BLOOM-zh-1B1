@@ -20,8 +20,8 @@ The multilingual language model BLOOM-zh features enhanced support for Tradition
 
 | Model        | Training tokens | Download                                       |
 | ------------ | --------------- | ---------------------------------------------- |
-| Bloom-zh 1B1 | 5.6 B           | https://huggingface.co/ckip-joint/bloom-1b1-zh |
-| Bloom-zh 3B  | 12 B           | -                                              |
+| Bloom-zh 1B1 | 11.5 B           | (to be updated) https://huggingface.co/ckip-joint/bloom-1b1-zh |
+| Bloom-zh 3B  | 13 B           | -                                              |
 
 ### Evaluation
 
