@@ -2,7 +2,7 @@
 
 The multilingual language model BLOOM-zh features enhanced support for Traditional Chinese. BLOOM-zh has its origins in the open-source BLOOM models presented by BigScience in 2022. The technical specification can be found in the corresponding [paper](https://arxiv.org/abs/2303.04715). As of March 9nd 2023, the 1B1 parameter model is released with following unique features:
 
-- Multilingual: supports Traditional Chinese as well as the pretrained languages of BLOOM
+- Language: supports Traditional Chinese
 
 - Performance: performs significantly better on Traditional Chinese than the original BLOOM
 
