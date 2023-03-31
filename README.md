@@ -27,7 +27,7 @@ The multilingual language model BLOOM-zh features enhanced support for Tradition
 
 For perplexity evaluation, we used the evaluation pipeline presented in the original [megatron-deepspeed](https://github.com/microsoft/Megatron-DeepSpeed) library. For evaluating the downstream task performance, please follow the instructions of the [Traditional Chinese Evaluation Suite](https://github.com/CKIP-Joint/Evaluator). We evaluated Bloom-zh on following downstream tasks:
 
-- TTQA: Taiwan Trivia Question Answering. Please refer to [paper](https://arxiv.org/abs/2303.04715) 
+- TTQA: Taiwan Trivia Question Answering. Please refer to our [paper](https://arxiv.org/abs/2303.04715) 
 - DRCD: Please refer to [DRCD](https://github.com/DRCKnowledgeTeam/DRCD)
 - FGC: Please refer to [科技大擂台](https://scidm.nchc.org.tw/dataset/grandchallenge2020/resource/af730fe7-7f95-4af2-b4f4-1ca09406b35a)
 
