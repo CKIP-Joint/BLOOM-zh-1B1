@@ -1,14 +1,20 @@
-# BLOOM-zh: Extending the Pre-Training of BLOOM for Improved Support of Traditional Chinese
+# BLOOM-zh: Traditional Chinese-Improved BLOOM 
 
-The multilingual language model BLOOM-zh features enhanced support for Traditional Chinese. BLOOM-zh has its origins in the open-source BLOOM models presented by BigScience in 2022. The technical specification can be found in the corresponding [paper](https://arxiv.org/abs/2303.04715). As of March 9nd 2023, the 1B1 parameter model is released with following unique features:
+The multilingual language model BLOOM-zh features enhanced support for Traditional Chinese over BLOOM. BLOOM-zh has its origins in the open-source BLOOM models presented by BigScience in 2022. The technical specification can be found in the corresponding [paper](https://arxiv.org/abs/2303.04715). 
 
-- Language: supports Traditional Chinese
+The first 1B1 parameter model was released on March 9, 2023. The 3B parameter model was released on April 10, 2023. We will continue to release larger models trained on more tokens with performance/behavior fixes. 
 
-- Performance: performs significantly better on Traditional Chinese than the original BLOOM
+## Features
+
+- Performance: BLOOM-zh performs significantly better on Traditional Chinese than the stock BLOOM
 
 - Free-to-download: model weights are free to download 
 
 ## News
+
+- **[2023.04.10]** [Bloom-zh 3B](https://huggingface.co/ckip-joint/bloom-3b-zh) is out!
+
+- **[2023.04.10]** First iteration of [Bloom-zh 1B1](https://huggingface.co/ckip-joint/bloom-1b1-zh), this one pre-trained with 11B Traditional Chinese tokens.
 
 - **[2023.03.09]** Our [paper](https://arxiv.org/abs/2303.04715) for Bloom-zh is out!
 
@@ -19,9 +25,9 @@ The multilingual language model BLOOM-zh features enhanced support for Tradition
 ### Model weights
 
 | Model        | Additional training tokens | Download                                       |
-| ------------ | --------------- | ---------------------------------------------- |
-| Bloom-zh 1B1 | 11.5 B           | (to be updated) https://huggingface.co/ckip-joint/bloom-1b1-zh |
-| Bloom-zh 3B  | 13 B           | -                                              |
+| ------------ | -------------------------- | ---------------------------------------------- |
+| Bloom-zh 1B1 | 11.5 B                     | https://huggingface.co/ckip-joint/bloom-1b1-zh |
+| Bloom-zh 3B  | 13 B                       | https://huggingface.co/ckip-joint/bloom-3b-zh  |
 
 ### Evaluation
 
